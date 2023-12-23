@@ -7,10 +7,10 @@ class User(models.Model):
     fName = models.CharField(max_length=200)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=128)
-    profile = models.ImageField(upload_to='static/profiles/',nullable=True,blank=True)
+    profile = models.ImageField(upload_to='static/profiles/',null=True,blank=True)
     #latlong values
-    # latitude=models.FloatField(nullable=True,blank=True)
-    # latitude=models.FloatField(nullable=True,blank=True)
+    # latitude=models.FloatField(null=True,blank=True)
+    # latitude=models.FloatField(null=True,blank=True)
     location = models.PointField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
@@ -21,13 +21,13 @@ class User(models.Model):
 
 class Earthquake(models.Model):
     earthquake_key=models.AutoField(primary_key=True)
-    richter=models.FloatField(nullable=True,blank=True)
+    richter=models.FloatField(null=True,blank=True)
     year=models.IntegerField()
-    casualties=models.IntegerField(nullable=True,blank=True)
-    loss=models.IntegerField(nullable=True,blank=True)
+    casualties=models.IntegerField(null=True,blank=True)
+    loss=models.IntegerField(null=True,blank=True)
     #latlong values
-    # latitude_epicenter=models.FloatField(nullable=True,blank=True)
-    # longitude_epicenter=models.FloatField(nullable=True,blank=True)
+    # latitude_epicenter=models.FloatField(null=True,blank=True)
+    # longitude_epicenter=models.FloatField(null=True,blank=True)
     epicenter = models.PointField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
 
@@ -44,10 +44,10 @@ class Flood(models.Model):
         ('other', 'Other'),
     ]
     flood_key=models.AutoField(primary_key=True)
-    rainfall=models.FloatField(nullable=True,blank=True)
+    rainfall=models.FloatField(null=True,blank=True)
     year=models.IntegerField()
-    casualties=models.IntegerField(nullable=True,blank=True)
-    loss=models.IntegerField(nullable=True,blank=True)
+    casualties=models.IntegerField(null=True,blank=True)
+    loss=models.IntegerField(null=True,blank=True)
     epicenter = models.PointField(null=True, blank=True)
     radius = models.FloatField(null=True, blank=True)
     cause = models.CharField(max_length=20, choices=FLOOD_CAUSES, default='rainfall')
@@ -64,11 +64,11 @@ class Glof(models.Model):
         ('other', 'Other'),
     ]
     glof_key=models.AutoField(primary_key=True)
-    water_level=models.FloatField(nullable=True,blank=True)
+    water_level=models.FloatField(null=True,blank=True)
     year=models.IntegerField()
-    casualties=models.IntegerField(nullable=True,blank=True)
+    casualties=models.IntegerField(null=True,blank=True)
     cause = models.CharField(max_length=20, choices=GLOF_CAUSES, default='avalanche')
-    loss=models.IntegerField(nullable=True,blank=True)
+    loss=models.IntegerField(null=True,blank=True)
     epicenter = models.PointField(null=True, blank=True)
     radius = models.FloatField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
@@ -84,8 +84,8 @@ class Landslide(models.Model):
     ]
     landslide_key=models.AutoField(primary_key=True)
     year=models.IntegerField()
-    casualties=models.IntegerField(nullable=True,blank=True)
-    loss=models.IntegerField(nullable=True,blank=True)
+    casualties=models.IntegerField(null=True,blank=True)
+    loss=models.IntegerField(null=True,blank=True)
     cause = models.CharField(max_length=20, choices=LANDSLIDE_CAUSES, default='rainfall')
     epicenter = models.PointField(null=True, blank=True)
     radius = models.FloatField(null=True, blank=True)
