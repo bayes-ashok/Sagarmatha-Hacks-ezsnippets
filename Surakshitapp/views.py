@@ -21,3 +21,11 @@ def glof(request):
 
 def landslide(request):
     return render(request,'landslide.html')
+
+def login(request):
+    return render(request, 'login.html')
+
+def signup(request):
+    return render(request,'signup.html')
+
+
