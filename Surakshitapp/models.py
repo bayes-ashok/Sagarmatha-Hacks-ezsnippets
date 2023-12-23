@@ -48,9 +48,6 @@ class Flood(models.Model):
     year=models.IntegerField()
     casualties=models.IntegerField(nullable=True,blank=True)
     loss=models.IntegerField(nullable=True,blank=True)
-    #latlong values
-    # latitude_epicenter=models.FloatField(nullable=True,blank=True)
-    # longitude_epicenter=models.FloatField(nullable=True,blank=True)
     epicenter = models.PointField(null=True, blank=True)
     radius = models.FloatField(null=True, blank=True)
     cause = models.CharField(max_length=20, choices=FLOOD_CAUSES, default='rainfall')
@@ -72,9 +69,6 @@ class Glof(models.Model):
     casualties=models.IntegerField(nullable=True,blank=True)
     cause = models.CharField(max_length=20, choices=GLOF_CAUSES, default='avalanche')
     loss=models.IntegerField(nullable=True,blank=True)
-    #latlong values
-    # latitude_epicenter=models.FloatField(nullable=True,blank=True)
-    # longitude_epicenter=models.FloatField(nullable=True,blank=True)
     epicenter = models.PointField(null=True, blank=True)
     radius = models.FloatField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
@@ -93,9 +87,6 @@ class Landslide(models.Model):
     casualties=models.IntegerField(nullable=True,blank=True)
     loss=models.IntegerField(nullable=True,blank=True)
     cause = models.CharField(max_length=20, choices=LANDSLIDE_CAUSES, default='rainfall')
-    #latlong values
-    # latitude_epicenter=models.FloatField(nullable=True,blank=True)
-    # longitude_epicenter=models.FloatField(nullable=True,blank=True)
     epicenter = models.PointField(null=True, blank=True)
     radius = models.FloatField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
